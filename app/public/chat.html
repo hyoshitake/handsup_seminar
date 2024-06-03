@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SocketIOチャット</title>
+    <style>
+        body {
+            margin: 0px 0px 0px 24px;
+            padding: 0;
+        }
+
+        .container {
+            width:  100vw;
+            height: 100vh;
+            /* 水平・垂直方向の中央揃え */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        #number {
+            color: white;
+            font-size: 256px;
+        }
+
+        #button {
+            color: white;
+        }
+    </style>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+</head>
+
+<body>
+    <h1 id="h1">ハンズオンセミナー</h1>
+
+    <form id="frm-post">
+        <label>
+            comment
+            <input type="text" id="msg" autocomplete="off">
+        </label>
+        <button>送信</button>
+    </form>
+
+    <ul id="msglist">
+    </ul>
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+    <script src="socket.io/socket.io.min.js"></script>
+    <script src="./js/socket.js"></script>
+</body>
+
+</html>
