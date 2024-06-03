@@ -9,15 +9,13 @@
 <body>
     <h1>RoomId</h1>
     <form id="room-post">
-        <label>
-            <h2>RoomId</h2>
-            <input type="text" id="room" maxlength="4" placeholder="1234">
-            <label>
-                name
-                <input type="text" id="user_name" name="name" value="user1">
-            </label>
-        </label>
-        <input type="submit" value="入室">
+        <div>
+            <label for="room">RoomId</label>
+            <input type="text" name="room" id="room" maxlength="4" placeholder="please input...">
+            <label for="name">name</label>
+            <input type="text" id="user_name" name="name" placeholder="please input...">
+            <input type="submit" value="入室">
+        </div>
     </form>
 
     <script src="socket.io/socket.io.min.js"></script>
