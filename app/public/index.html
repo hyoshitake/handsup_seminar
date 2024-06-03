@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン</title>
+  <style>
+    .inline-block {
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
-    <h1>RoomId</h1>
-    <form id="room-post">
-        <div>
-            <label for="room">RoomId</label>
-            <input type="text" name="room" id="room" maxlength="4" placeholder="please input...">
-            <label for="name">name</label>
-            <input type="text" id="user_name" name="name" placeholder="please input...">
-            <input type="submit" value="入室">
-        </div>
-    </form>
+  <h1>RoomId</h1>
+  <form id="room-post">
+    <div>
+      <span class="inline-block">
+        <label for="room">RoomId</label>
+        <input type="text" name="room" id="room" maxlength="4" placeholder="please input...">
+      </span>
+      <span class="inline-block">
+        <label for="name">name</label>
+        <input type="text" id="user_name" name="name" placeholder="please input...">
+      </span>
+      <span class="inline-block">
+        <input type="submit" value="入室">
+      </span>
 
-    <script src="socket.io/socket.io.min.js"></script>
-    <script src="./js/room.js"></script>
+    </div>
+  </form>
+
+  <script src="socket.io/socket.io.min.js"></script>
+  <script src="./js/room.js"></script>
 </body>
 </html>

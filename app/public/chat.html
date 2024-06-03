@@ -2,58 +2,129 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>挙手システム</title>
-    <style>
-        body {
-            margin: 0px 0px 0px 24px;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>挙手システム</title>
+  <style>
+    body {
+      margin: 0px 0px 0px 24px;
+      padding: 0;
+    }
 
-        .container {
-            width:  100vw;
-            height: 100vh;
-            /* 水平・垂直方向の中央揃え */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .container {
+      width:  100vw;
+      height: 100vh;
+      /* 水平・垂直方向の中央揃え */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .text-center {
-            text-align: center;
-        }
+    .text-center {
+      text-align: center;
+    }
 
-        #number {
-            color: white;
-            font-size: 256px;
-        }
+    #number {
+      color: white;
+      font-size: 256px;
+    }
 
-        #button {
-            color: white;
-        }
-    </style>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+    #button {
+      color: white;
+    }
+
+    .title {
+      margin-top: 24px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #name {
+      margin-left: 12px;
+    }
+
+    #frm-post {
+      margin-top: 12px;
+    }
+
+    /* チャットのようなデザイン */
+    /* https://saruwakakun.com/html-css/reference/speech-bubble */
+    .balloon5 {
+      width: 100%;
+      margin: 1.5em 0;
+      overflow: hidden;
+    }
+
+    .balloon5 .chatting {
+      width: 100%;
+    }
+
+    .balloon5>div {
+      margin-top: 10px;
+    }
+
+    .says {
+      font-size: 12px;
+      display: inline-block;
+      position: relative;
+      margin: 10px 0 0 105px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: #d7ebfe;
+    }
+
+    .says:after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 5px;
+      left: -21px;
+      border: 8px solid transparent;
+      border-right: 15px solid #d7ebfe;
+    }
+
+    .says p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .balloon5 .faceicon {
+      float: left;
+      margin-right: -90px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .faceicon .name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .faceicon .time {
+      font-size: 12px;
+      margin-left: 10px;
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
 <body>
-    <h1 id="h1">ハンズオンセミナー</h1>
+  <div class="title">ハンズオンセミナー</div>
+  <div><span id="roomid"></span><span id="name"></span></div>
 
-    <form id="frm-post">
-        <label>
-            comment
-            <input type="text" id="msg" autocomplete="off">
-        </label>
-        <button>送信</button>
-    </form>
+  <form id="frm-post">
+    <input type="text" id="msg" autocomplete="off">
+    <button>発言する</button>
+  </form>
 
-    <ul id="msglist">
-    </ul>
-    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
-    <script src="socket.io/socket.io.min.js"></script>
-    <script src="./js/socket.js"></script>
+  <div id="msglist" class="balloon5" />
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+  <script src="socket.io/socket.io.min.js"></script>
+  <script src="./js/socket.js"></script>
 </body>
 
 </html>
