@@ -10,6 +10,18 @@ services:
     ports:
       - 3000:3000
     # command: bash
-    command: sh -c 'node server.js'
+    command: sh -c 'npm ci; node server.js'
     tty: true
 
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    ports:
+      - 4040:4040
+    volumes:
+      - .\ngrok.yml:/etc/ngrok.yml
