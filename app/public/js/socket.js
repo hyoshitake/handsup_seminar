@@ -58,6 +58,13 @@ socket.on("message", (msg) => {
       party.confetti(document.body);
     }, i * 200);
   }
+
+  // ベルだったらベル鳴らす
+  if(msg.text == 'ベル'){
+    const audio = new Audio('../audio/Onoma-Ding04-1.mp3');
+    audio.play();
+    console.log('ベルが鳴りました');
+  }
 });
 
 // 画面が表示したら、入力欄にフォーカスする
